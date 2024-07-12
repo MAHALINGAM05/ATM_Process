@@ -1,0 +1,92 @@
+import java.util.*;
+public class Main
+{  static Scanner obj=new Scanner(System.in);
+    int deposite(int b[],long c[],int id){
+              System.out.print("Enter Your Account Number :");
+              int a=obj.nextInt();
+              if(b[id]==a)
+              System.out.print("Enter Your phone Number :");
+              int g=obj.nextInt();
+              if(c[id]==g)
+              System.out.print("Enter deposite Amount :");
+              int j=obj.nextInt();
+              return j;
+             
+   }
+   void withdrew(int e[],int id){
+       System.out.println("Enter withdrew Amount :");
+       int d=obj.nextInt();
+       if(e[id]>=d){
+       System.out.println("********Transaction is finished********");
+       e[id]-=d;
+       System.out.println("        balance Amount is :"+e[id]);
+       }
+       else
+       System.out.println("********Insaficient Account balance********");
+   }
+   void pinchange(int a[],int id){
+       System.out.print("Enter Your Current Pin :");
+       int pi=obj.nextInt();
+       if(a[id]==pi)
+        System.out.print("Enter new pin :");
+        int np=obj.nextInt();
+        a[id]=np;
+        System.out.println("*********pinchange success*********");
+   }
+   void balchack(int a[],int b[],int id){
+       System.out.print("Enter Your pin :");
+       int pi=obj.nextInt();
+       if(b[id]==pi)
+        System.out.println("Balance is :"+a[id]);
+   }
+	public static void main(String[] args) {
+	    
+	    Main sc=new Main();
+	    int mi;
+	    int ac[]={233,123,432,323};
+	    int pin[]={222,111,987,567};
+	    int am[]={100,230,1000,325};
+	     long ph[]={231134,321134,346321,987654};
+	   do{
+		System.out.println("**********WELCOME TO ECHO BANK***********");
+		System.out.print("Enter a Account Number :");
+		int a=obj.nextInt();
+		int id=0;
+		for(int i=0;i<ac.length;i++)
+		{
+		    if(ac[i]==a)
+		    id=i;
+		}  
+		if(id>=0){
+		    System.out.println("1)deposite\n2)withdrew\n3)pinchange\n4)balance_chack");
+		    System.out.print("Choose the options:");
+		    int b=obj.nextInt();
+		    switch(b){
+		        case 1: {int r=sc.deposite(ac,ph,id);
+		                am[id]+=r;
+		                System.out.println("********deposite success********");
+		              break;
+		        }
+		        case 2:{sc.withdrew(am,id);
+		            break;
+		        }
+		        case 3:{
+		            sc.pinchange(pin,id);
+		            break;
+		        }
+		        case 4:{
+		            sc.balchack(am,pin,id);
+		            break;
+		        }
+		   }
+		}else{
+		System.out.println("invalide Account Number");
+		}
+	   
+	   System.out.println("1)Restart\n2)Exit");
+	   System.out.print("Choose the options :");
+	   mi=obj.nextInt();}
+	   while(mi==1);
+	  
+	}
+}
